@@ -1,0 +1,122 @@
+:root {
+    --primaria: #4a90e2;
+    --sucesso: #2ecc71;
+    --alerta: #f1c40f;
+    --perigo: #e74c3c;
+    --fundo: #f0f4f8;
+    --texto: #2c3e50;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: var(--fundo);
+    margin: 0; padding: 0;
+    height: 100vh; width: 100vw;
+    overflow: hidden; /* Trava o scroll vertical */
+}
+
+.tela {
+    height: 100vh;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: flex-start;
+    padding: 10px; box-sizing: border-box;
+}
+
+/* PAINEL SUPERIOR */
+.painel-superior {
+    display: flex; justify-content: space-between; align-items: center;
+    width: 100%; max-width: 500px;
+    background: white; padding: 10px 20px;
+    border-radius: 15px; margin-bottom: 10px;
+    height: 60px; box-sizing: border-box;
+}
+
+.label { font-size: 0.7rem; color: #7f8c8d; display: block; text-transform: uppercase; }
+.valor { font-weight: bold; font-size: 1.1rem; }
+.valor-fase { color: var(--primaria); font-weight: bold; background: #ebf3ff; padding: 5px 15px; border-radius: 20px; font-size: 0.9rem; }
+
+/* CONTAINER PRINCIPAL */
+.container {
+    background: white; padding: 15px;
+    border-radius: 25px; box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    max-width: 500px; width: 100%;
+    flex: 1; /* Ocupa o espaço central */
+    display: flex; flex-direction: column;
+    justify-content: space-around; /* Distribui elementos verticalmente sem apertar */
+    border-top: 8px solid var(--sucesso);
+    box-sizing: border-box;
+    margin-bottom: 5px;
+}
+
+/* CORREÇÃO DO SVG E DO TRIÂNGULO PRETO */
+.forca-box { height: 22vh; display: flex; justify-content: center; }
+
+.forca-svg { height: 100%; }
+
+/* Remove preenchimento de QUALQUER parte do SVG (resolve o triângulo) */
+.forca-svg path, 
+.forca-svg circle, 
+.forca-svg line {
+    fill: none !important; 
+    stroke: #333;
+    stroke-width: 5;
+    stroke-linecap: round;
+    transition: opacity 0.3s;
+}
+
+.boneco { opacity: 0; } /* Controlado pelo JS */
+
+/* PALAVRA EXIBIDA */
+#palavra-exibida {
+    font-size: clamp(1.4rem, 4.5vh, 2.2rem);
+    letter-spacing: 10px;
+    font-weight: 800;
+    color: #34495e;
+    margin: 5px 0;
+}
+
+/* DICA */
+.area-dica {
+    background: #f8f9fa; padding: 8px;
+    border-radius: 12px; min-height: 45px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.95rem; font-style: italic;
+}
+
+/* TECLADO */
+.teclado {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(38px, 1fr));
+    gap: 5px;
+}
+
+.tecla {
+    padding: 10px 0;
+    font-weight: bold; font-size: 1rem;
+    border: 2px solid #eee; background: white;
+    border-radius: 8px; cursor: pointer;
+}
+
+.tecla.correta { background: var(--sucesso); color: white; border-color: var(--sucesso); }
+.tecla.errada { background: var(--perigo); color: white; border-color: var(--perigo); }
+.tecla:disabled { opacity: 0.4; }
+
+/* FEEDBACK E BOTÕES */
+.feedback { font-weight: bold; height: 20px; font-size: 1.1rem; }
+
+.btn-principal {
+    background: var(--sucesso); color: white; border: none;
+    padding: 12px 30px; font-size: 1.1rem;
+    font-weight: bold; border-radius: 12px; cursor: pointer;
+}
+
+.btn-mini {
+    background: #f1f1f1; border: none; padding: 8px 15px;
+    margin: 0 5px; border-radius: 8px; font-size: 0.85rem; cursor: pointer;
+}
+
+/* OUTROS ELEMENTOS */
+.card-inicial { background: white; padding: 40px; border-radius: 25px; text-align: center; }
+.overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); display: flex; align-items: center; justify-content: center; z-index: 100; }
+.modal-nivel { background: white; padding: 30px; border-radius: 25px; text-align: center; max-width: 80%; }
+.oculto { display: none !important; }
