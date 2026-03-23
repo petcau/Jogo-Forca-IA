@@ -1,0 +1,17 @@
+{
+    "1": [
+        { "p": "CASA", "d": "Lugar onde moramos" },
+        { "p": "BOLA", "d": "Usamos para jogar futebol" },
+        { "p": "GATO", "d": "Animal que faz miau" }
+    ],
+    "2": [
+        { "p": "ESCOLA", "d": "Lugar de aprender" },
+        { "p": "PLANETA", "d": "A Terra é um..." },
+        { "p": "FLORESTA", "d": "Lugar com muitas árvores" }
+    ],
+    "3": [
+        { "p": "TECNOLOGIA", "d": "" },
+        { "p": "UNIVERSO", "d": "" },
+        { "p": "ALGORITMO", "d": "" }
+    ]
+}
